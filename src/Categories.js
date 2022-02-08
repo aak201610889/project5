@@ -1,36 +1,15 @@
 import React from 'react';
 
-function Categories({ filterItems }) {
+function Categories({ categories,filterItems }) {
   return (
     <div>
-      <button
-        onClick={() => {
-          filterItems("all");
-        }}
-      >
-        all
-      </button>
-      <button
-        onClick={() => {
-          filterItems("breakfast");
-        }}
-      >
-        breakfast
-      </button>
-      <button
-        onClick={() => {
-          filterItems("shakes");
-        }}
-      >
-        shakes
-      </button>
-      <button
-        onClick={() => {
-          filterItems("lunch");
-        }}
-      >
-        lunch
-      </button>
+      {categories.map(category => {
+        return (
+          <button key={category} onClick={() => filterItems(category)}>
+            {category}
+          </button>
+        );
+      })}
     </div>
   );
 }
